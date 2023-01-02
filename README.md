@@ -16,41 +16,44 @@ jsonnet ou arquivos yaml simples) do seu repositório git e a aplica aos namespa
 
 clone este repositório
 
-´´´
+```
 git clone https://github.com/danielbatubenga/argocd-deploy-kubernetes.git
 cd argcd-deploy-kubernetes
-´´´
+```
 
 crie os namespace kubernetes
-´´´
+```
 kubectl create namespace argocd
 kubectl create namespace nginx
-´´´
+```
 aplicando os manifestos kubernetes
-´´´
+
+```
 kubectl apply -f argoCD_conf/install
-´´´
+```
+
 Terminando a instalação faça o port-forwarding para acesso externo.
 
-´´´
+```
 kubectl port-forward svc/argocd-server -n argocd 8080:443
-´´´
+```
 
 No seu navegador use: localhost:8080 se tudo certo aparecerá a tela do kubernetes para login e agora
 será necessario uma senha, o argocd gera as senhas randomicas para cada instalação e o usue é admin.
 
-´´´
+```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-´´´
+```
+
 Copie a senha, exibida na saida do comando acima, e passe no navegador.
 
 Neste ponto precisas subir apenas o manifesto app.yal que será responsavel pela verificação e atualização
 dos pods.
 
 execute 
-´´´
+```
 kubectl apply -f argoCD_conf/app.yaml
-´´´
+```
 
 Então agora sempre que mudar alguma alguma coisa no seu repo, o argoCD atualizará os pods.
 
