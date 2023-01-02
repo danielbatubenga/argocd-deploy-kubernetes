@@ -1,6 +1,6 @@
 # argoCD
 
-ArgoCD é uma ferramenta que lê a configuração do seu ambiente (escrita como um chart helm, arquivos kustomize, 
+[ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/) é uma ferramenta que lê a configuração do seu ambiente (escrita como um chart helm, arquivos kustomize, 
 jsonnet ou arquivos yaml simples) do seu repositório git e a aplica aos namespaces do Kubernetes.
 
 ## Alguns dos recursos do ArgoCD são:
