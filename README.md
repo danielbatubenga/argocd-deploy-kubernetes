@@ -29,7 +29,7 @@ kubectl create namespace nginx
 aplicando os manifestos kubernetes
 
 ```
-kubectl apply -f argoCD_conf/install
+kubectl apply -f argoCD_conf/install..yaml -n argocd
 ```
 
 Terminando a instalação faça o port-forwarding para acesso externo.
